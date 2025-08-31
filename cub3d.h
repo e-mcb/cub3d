@@ -6,7 +6,7 @@
 /*   By: mzutter <mzutter@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 17:14:44 by mzutter           #+#    #+#             */
-/*   Updated: 2025/08/31 17:58:59 by mzutter          ###   ########.fr       */
+/*   Updated: 2025/08/31 18:06:36 by mzutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #define NORTH (M_PI / 2)
 #define WEST (M_PI)
 #define SOUTH (3 * M_PI / 2)
+
+#define FOV (M_PI / 2)
 
 # include <stdio.h>
 # include <stdlib.h>
