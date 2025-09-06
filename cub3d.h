@@ -38,6 +38,21 @@
 # include <stdbool.h>
 # include <limits.h>
 # include <math.h>
+# include "libft/libft.h"
+
+typedef struct s_parse
+{
+	char	*texture_north;
+	char	*texture_south;
+	char	*texture_west;		//all 4 of these are malloc'd, remember to free
+	char	*texture_east;
+
+	int		floor_color[3];
+	int		ceiling_color[3];
+	char	**map;
+	int		map_height;
+	int		map_width;
+} t_parse;
 
 typedef struct s_player
 {
@@ -56,5 +71,18 @@ typedef struct s_player
 	float	move_speed;
 	float	angular_speed;
 } t_player;
+
+//maths
+float	deg_to_rad(float degrees);
+float	rad_to_deg(float rad);
+
+//parsing
+int 	is_texture_or_color(char *line);
+void	parse_texture_or_color(char *line, t_parse *parse);
+
+
+//utils
+void	ft_free_str_array(char **arr);
+int		array_size(char **arr);
 
 #endif
