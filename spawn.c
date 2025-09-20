@@ -39,10 +39,8 @@ int	spawn_point(char **map, t_player *player)
 {
 	int	i;
 	int	j;
-	int	found;
 
 	i = 0;
-	found = 0;
 	if (!map)
 		return (-1);
 	while (map[i] != NULL)
@@ -53,13 +51,13 @@ int	spawn_point(char **map, t_player *player)
 			if (is_cardinal(map[i][j]))
 			{
 				player->init_angle = initial_direction(map[i][j]);
-				player->init_x = (float)j;
-				player->init_y = (float)i;
-				found = 1;
+				player->init_x = (float)j + 0.5f; //puts the player in the center of the tile
+				player->init_y = (float)i + 0.5f;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (found);
+	return (0);
 }

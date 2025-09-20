@@ -2,9 +2,9 @@
 
 int	is_texture_or_color(char *line)
 {
-	if (ft_strncmp(line, "NO ", 3) == 0 || ft_strncmp(line, "SO ", 3) == 0 ||
-		ft_strncmp(line, "WE ", 3) == 0 || ft_strncmp(line, "EA ", 3) == 0 ||
-		ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0)
+	if (ft_strncmp(line, "NO ", 3) == 0 || ft_strncmp(line, "SO ", 3) == 0
+		|| ft_strncmp(line, "WE ", 3) == 0 || ft_strncmp(line, "EA ", 3) == 0
+		|| ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0)
 		return (1);
 	return (0);
 }
@@ -37,15 +37,14 @@ int	parse_color_line(char *line, int color[3])
 	return (1);
 }
 
-
 void	parse_texture_or_color(char *line, t_parse *parse)
 {
 	char	*trimmed;
 	char	*color_str;
-	
+
 	trimmed = ft_strtrim(line, " \n\t\v\f\r");
 	if (!trimmed)
-		return; //malloc error
+		return ;//malloc error
 	if (ft_strncmp(trimmed, "NO ", 3) == 0)
 		parse->texture_north = ft_strtrim(trimmed + 3, " \n\t\v\f\r");
 	else if (ft_strncmp(trimmed, "SO ", 3) == 0)
@@ -65,7 +64,7 @@ void	parse_texture_or_color(char *line, t_parse *parse)
 	}
 	else if (ft_strncmp(trimmed, "C ", 2) == 0)
 	{
-		char *color_str = ft_strtrim(trimmed + 2, " \n\t\v\f\r");
+		color_str = ft_strtrim(trimmed + 2, " \n\t\v\f\r");
 		if (!parse_color_line(color_str, parse->ceiling_color))
 		{
 			//errors
